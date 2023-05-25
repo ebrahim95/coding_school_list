@@ -1,5 +1,5 @@
 import { A } from "solid-start";
-import { createSignal, onMount, For } from 'solid-js';
+import { createSignal, onMount, For, Show } from 'solid-js';
 import { coding_school } from '../services/utils'
 import { getSchools } from '../services/service'
 import {
@@ -7,6 +7,8 @@ import {
   getCoreRowModel,
   ColumnDef,
   createSolidTable,
+  SortingState,
+  getSortedRowModel,
   getPaginationRowModel,
 } from '@tanstack/solid-table'
 
@@ -243,6 +245,7 @@ const defaultColumns: ColumnDef<coding_school>[] = [
 export default function Home() {
 
   const [data, setData] = createSignal([] as coding_school[])
+  const [sorting, setSorting] = createSignal<SortingState>([])
   // const [data, setData] = createSignal([] as coding_school[])
 
   // onMount(async () => {
@@ -266,8 +269,15 @@ export default function Home() {
     get data() {
       return data()
     },
+    state: {
+      get sorting() {
+        return sorting()
+      },
+    },
+    onSortingChange: setSorting,
     columns: defaultColumns,
     getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel()
   })
 
@@ -286,13 +296,26 @@ export default function Home() {
               <tr>
                 <For each={headerGroup.headers}>
                   {header => (
-                    <th>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
+                    <th colSpan={header.colSpan}>
+                      <Show when={!header.isPlaceholder}>
+                        <div
+                          class={
+                            header.column.getCanSort()
+                              ? 'cursor-pointer select-none'
+                              : undefined
+                          }
+                          onClick={header.column.getToggleSortingHandler()}
+                        >
+                          {flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                          {{
+                            asc: ' 🔼',
+                            desc: ' 🔽',
+                          }[header.column.getIsSorted() as string] ?? null}
+                        </div>
+                      </Show>
                     </th>
                   )}
                 </For>
