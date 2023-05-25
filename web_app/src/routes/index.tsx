@@ -14,7 +14,7 @@ const defaultData: coding_school[] = [
   {
     name: 'joe',
     url: 'google..com',
-    courses_offered: "none",
+    courses_offered: "none coco",
     location: "may"
   }, {
     name: 'joe',
@@ -232,6 +232,7 @@ const defaultColumns: ColumnDef<coding_school>[] = [
   {
     accessorKey: 'courses_offered',
     header: () => 'Courses Offered',
+    cell: info => info.getValue<string>().split(" ").map(word => <span class="badge mx-1">{word}</span>),
   },
   {
     accessorKey: 'location',
@@ -274,11 +275,11 @@ export default function Home() {
   return (
     <main class="prose text-center mx-auto text-gray-700 p-4">
 
-      <h1 class="max-6-xs text-6xl text-sky-700 font-bold uppercase my-16">
+      <h1 class="max-6-xs text-6xl font-bold uppercase my-16">
         Coding Schools In My City
       </h1>
 
-      <table class="table">
+      <table>
         <thead>
           <For each={table.getHeaderGroups()}>
             {headerGroup => (
@@ -341,13 +342,36 @@ export default function Home() {
           {table.getPageCount()}
         </strong>
       </span>
-      <p class="my-4">
-        <span>Home</span>
-        {" - "}
-        <A href="/about" class="text-sky-600 hover:underline">
-          About Page
-        </A>{" "}
-      </p>
+      <form class="flex flex-col justify-center gap-3">
+        <h2> Fill up form below to add your school </h2>
+        <label class="input-group input-group-vertical ">
+          <span>name</span>
+          <input type="text" placeholder="My Coding School" class="input input-bordered" />
+        </label>
+        <label class="input-group input-group-vertical">
+          <span>url</span>
+          <input type="text" placeholder="https://www.google.com" class="input input-bordered" />
+        </label>
+        <label class="input-group input-group-vertical">
+          <span>courses offered</span>
+          <input type="text" placeholder="Java, Python, JavaScript" class="input input-bordered" />
+        </label>
+        <label class="input-group input-group-vertical">
+          <span>location</span>
+          <input type="text" placeholder="Austin, TX" class="input input-bordered" />
+        </label>
+
+        <button class="btn">
+          Submit
+        </button>
+      </form>
+      {/* <p class="my-4"> */}
+      {/*   <span>Home</span> */}
+      {/*   {" - "} */}
+      {/*   <A href="/about" class="text-sky-600 hover:underline"> */}
+      {/*     About Page */}
+      {/*   </A>{" "} */}
+      {/* </p> */}
     </main>
   );
 }
