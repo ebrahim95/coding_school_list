@@ -10,7 +10,18 @@ import {
   SortingState,
   getSortedRowModel,
   getPaginationRowModel,
+  getFilteredRowModel,
+  sortingFns,
+  ColumnFiltersState
 } from '@tanstack/solid-table'
+
+
+import {
+  rankItem,
+  compareItems
+} from '@tanstack/match-sorter-utils'
+
+
 
 const defaultData: coding_school[] = [
   {
@@ -221,6 +232,8 @@ const defaultData: coding_school[] = [
   },
 ]
 
+
+//TODO: need to disable sorting for some columns
 const defaultColumns: ColumnDef<coding_school>[] = [
   {
     accessorKey: 'name',
@@ -246,6 +259,8 @@ export default function Home() {
 
   const [data, setData] = createSignal([] as coding_school[])
   const [sorting, setSorting] = createSignal<SortingState>([])
+  const [columnFilters, setColumnFilters] = createSignal<ColumnFiltersState>([])
+  const [globalFilter, setGlobalFilter] = createSignal<any>("")
   // const [data, setData] = createSignal([] as coding_school[])
 
   // onMount(async () => {
@@ -265,22 +280,60 @@ export default function Home() {
 
   setData(defaultData)
 
+
+  const fuzzyFilter = (row: any, columnId: any, value: any, addMeta: any) => {
+    // Rank the item
+    const itemRank = rankItem(row.getValue(columnId), value)
+
+    // Store the ranking info
+    addMeta(itemRank)
+
+    // Return if the item should be filtered in/out
+    return itemRank.passed
+  }
+
+  const fuzzySort = (rowA: any, rowB: any, columnId: any) => {
+    let dir = 0
+
+    // Only sort by rank if the column has ranking information
+    if (rowA.columnFiltersMeta[columnId]) {
+      dir = compareItems(
+        rowA.columnFiltersMeta[columnId]!,
+        rowB.columnFiltersMeta[columnId]!
+      )
+    }
+
+    // Provide an alphanumeric fallback for when the item ranks are equal
+    return dir === 0 ? sortingFns.alphanumeric(rowA, rowB, columnId) : dir
+
+  }
+
+
   const table = createSolidTable({
     get data() {
       return data()
+    },
+    filterFns: {
+      fuzzy: fuzzyFilter,
     },
     state: {
       get sorting() {
         return sorting()
       },
+      get globalFilter() {
+        return globalFilter()
+      }
     },
     onSortingChange: setSorting,
     columns: defaultColumns,
+    getFilteredRowModel: getFilteredRowModel(),
+    globalFilterFn: fuzzyFilter,
+    onColumnFiltersChange: setColumnFilters,
+    onGlobalFilterChange: setGlobalFilter,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel()
   })
-
 
   return (
     <main class="prose text-center mx-auto text-gray-700 p-4">
@@ -288,7 +341,19 @@ export default function Home() {
       <h1 class="max-6-xs text-6xl font-bold uppercase my-16">
         Coding Schools In My City
       </h1>
-
+      <div class="form-control">
+        <label class="label">
+          Press <span class="kbd ml-1 mr-auto">Enter</span>
+        </label>
+        <label class="input-group">
+          <span>Search</span>
+          <input
+            type="text"
+            onChange={(e) => setGlobalFilter(String(e.target.value))}
+            class="input input-bordered"
+          />
+        </label>
+      </div>
       <table>
         <thead>
           <For each={table.getHeaderGroups()}>
