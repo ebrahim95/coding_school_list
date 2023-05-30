@@ -1,7 +1,7 @@
 import { A } from "solid-start";
 import { createSignal, onMount, For, Show } from 'solid-js';
 import { coding_school } from '../services/utils'
-import { getSchools } from '../services/service'
+// import { getSchools } from '../services/service'
 import {
   flexRender,
   getCoreRowModel,
@@ -339,7 +339,7 @@ export default function Home() {
     <main class="prose text-center mx-auto text-gray-700 p-4">
 
       <h1 class="max-6-xs text-6xl font-bold uppercase my-16">
-        Coding Schools In My City
+        Coding Schools In Your City
       </h1>
       <div class="form-control">
         <label class="label">
