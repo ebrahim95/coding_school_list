@@ -1,0 +1,39 @@
+{
+  "resolvedId": "/home/ebrahim/Desktop/coding_school_list/web_app/node_modules/solid-start/root/FileRoutes.tsx",
+  "transforms": [
+    {
+      "name": "__load__",
+      "result": "/// <reference path=\"../server/types.tsx\" />\n\n// @ts-expect-error\nvar fileRoutes = $FILE_ROUTES;\n\n/**\n * Routes are the file system based routes, used by Solid App Router to show the current page according to the URL.\n */\n\nconst FileRoutes = () => {\n  return fileRoutes;\n};\n\nexport default FileRoutes;\nexport { fileRoutes };\n",
+      "start": 1685413273727,
+      "end": 1685413273727
+    },
+    {
+      "name": "solid-start-file-system-router",
+      "result": "/// <reference path=\"../server/types.tsx\" />\n\n// @ts-expect-error\n\n  \n  import routeData0  from '/home/ebrahim/Desktop/coding_school_list/web_app/src/routes/[...404].tsx';\nimport routeData1  from '/home/ebrahim/Desktop/coding_school_list/web_app/src/routes/about.tsx';\nimport routeData2  from '/home/ebrahim/Desktop/coding_school_list/web_app/src/routes/index.tsx';\n  const fileRoutes = /*#__PURE__*/ [\n{\ncomponent: routeData0,\n path: \"/*404\" \n},\n{\ncomponent: routeData1,\n path: \"/about\" \n},\n{\ncomponent: routeData2,\n path: \"/\" \n}\n];\n\n/**\n * Routes are the file system based routes, used by Solid App Router to show the current page according to the URL.\n */\n\nconst FileRoutes = () => {\n  return fileRoutes;\n};\n\nexport default FileRoutes;\nexport { fileRoutes };\n",
+      "start": 1685413273727,
+      "end": 1685413273728,
+      "order": "pre"
+    },
+    {
+      "name": "solid",
+      "result": "/// <reference path=\"../server/types.tsx\" />\n\n// @ts-expect-error\n\nimport routeData0 from '/home/ebrahim/Desktop/coding_school_list/web_app/src/routes/[...404].tsx';\nimport routeData1 from '/home/ebrahim/Desktop/coding_school_list/web_app/src/routes/about.tsx';\nimport routeData2 from '/home/ebrahim/Desktop/coding_school_list/web_app/src/routes/index.tsx';\nconst fileRoutes = /*#__PURE__*/[{\n  component: routeData0,\n  path: \"/*404\"\n}, {\n  component: routeData1,\n  path: \"/about\"\n}, {\n  component: routeData2,\n  path: \"/\"\n}];\n\n/**\n * Routes are the file system based routes, used by Solid App Router to show the current page according to the URL.\n */\n\nconst FileRoutes = () => {\n  return fileRoutes;\n};\nexport default FileRoutes;\nexport { fileRoutes };",
+      "start": 1685413273728,
+      "end": 1685413273732,
+      "order": "pre"
+    },
+    {
+      "name": "vite:define",
+      "result": "/// <reference path=\"../server/types.tsx\" />\n\n// @ts-expect-error\n\nimport routeData0 from '/home/ebrahim/Desktop/coding_school_list/web_app/src/routes/[...404].tsx';\nimport routeData1 from '/home/ebrahim/Desktop/coding_school_list/web_app/src/routes/about.tsx';\nimport routeData2 from '/home/ebrahim/Desktop/coding_school_list/web_app/src/routes/index.tsx';\nconst fileRoutes = /*#__PURE__*/[{\n  component: routeData0,\n  path: \"/*404\"\n}, {\n  component: routeData1,\n  path: \"/about\"\n}, {\n  component: routeData2,\n  path: \"/\"\n}];\n\n/**\n * Routes are the file system based routes, used by Solid App Router to show the current page according to the URL.\n */\n\nconst FileRoutes = () => {\n  return fileRoutes;\n};\nexport default FileRoutes;\nexport { fileRoutes };",
+      "start": 1685413273733,
+      "end": 1685413273733,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-analysis",
+      "result": "/// <reference path=\"../server/types.tsx\" />\n\n// @ts-expect-error\n\nimport routeData0 from \"/src/routes/[...404].tsx\";\nimport routeData1 from \"/src/routes/about.tsx\";\nimport routeData2 from \"/src/routes/index.tsx\";\nconst fileRoutes = /*#__PURE__*/[{\n  component: routeData0,\n  path: \"/*404\"\n}, {\n  component: routeData1,\n  path: \"/about\"\n}, {\n  component: routeData2,\n  path: \"/\"\n}];\n\n/**\n * Routes are the file system based routes, used by Solid App Router to show the current page according to the URL.\n */\n\nconst FileRoutes = () => {\n  return fileRoutes;\n};\nexport default FileRoutes;\nexport { fileRoutes };",
+      "start": 1685413273733,
+      "end": 1685413273734,
+      "order": "normal"
+    }
+  ]
+}

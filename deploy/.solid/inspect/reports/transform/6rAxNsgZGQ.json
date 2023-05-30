@@ -1,0 +1,25 @@
+{
+  "resolvedId": "/home/ebrahim/Desktop/coding_school_list/web_app/src/entry-client.tsx",
+  "transforms": [
+    {
+      "name": "__load__",
+      "result": "import { mount, StartClient } from \"solid-start/entry-client\";\n\nmount(() => <StartClient />, document);\n",
+      "start": 1685413275000,
+      "end": 1685413275000
+    },
+    {
+      "name": "solid",
+      "result": "import { createComponent as _$createComponent } from \"solid-js/web\";\nimport { mount, StartClient } from \"solid-start/entry-client\";\nmount(() => _$createComponent(StartClient, {}), document);",
+      "start": 1685413275000,
+      "end": 1685413275004,
+      "order": "pre"
+    },
+    {
+      "name": "vite:import-analysis",
+      "result": "import { createComponent as _$createComponent } from \"/node_modules/.vite/deps/solid-js_web.js?v=3b3fc1cb\";\nimport { mount, StartClient } from \"/node_modules/solid-start/entry-client/index.tsx?v=fac3bc7e\";\nmount(() => _$createComponent(StartClient, {}), document);",
+      "start": 1685413275005,
+      "end": 1685413275006,
+      "order": "normal"
+    }
+  ]
+}

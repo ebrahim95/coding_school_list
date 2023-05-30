@@ -1,0 +1,25 @@
+{
+  "resolvedId": "/home/ebrahim/Desktop/coding_school_list/web_app/node_modules/solid-start/entry-client/index.tsx?v=fac3bc7e",
+  "transforms": [
+    {
+      "name": "__load__",
+      "result": "export { default as mount } from \"./mount\";\nexport { default as StartClient } from \"./StartClient\";\n",
+      "start": 1685413275013,
+      "end": 1685413275013
+    },
+    {
+      "name": "solid",
+      "result": "export { default as mount } from \"./mount\";\nexport { default as StartClient } from \"./StartClient\";",
+      "start": 1685413275013,
+      "end": 1685413275016,
+      "order": "pre"
+    },
+    {
+      "name": "vite:import-analysis",
+      "result": "export { default as mount } from \"/node_modules/solid-start/entry-client/mount.tsx?v=fac3bc7e\";\nexport { default as StartClient } from \"/node_modules/solid-start/entry-client/StartClient.tsx?v=fac3bc7e\";",
+      "start": 1685413275016,
+      "end": 1685413275018,
+      "order": "normal"
+    }
+  ]
+}

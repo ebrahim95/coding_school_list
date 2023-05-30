@@ -1,0 +1,25 @@
+{
+  "resolvedId": "/home/ebrahim/Desktop/coding_school_list/web_app/node_modules/@solidjs/router/dist/index.jsx?v=fac3bc7e",
+  "transforms": [
+    {
+      "name": "__load__",
+      "result": "export * from \"./components\";\nexport * from \"./integration\";\nexport * from \"./lifecycle\";\nexport { useRouteData, useHref, useIsRouting, useLocation, useMatch, useNavigate, useParams, useResolvedPath, useSearchParams, useBeforeLeave, } from \"./routing\";\nexport { mergeSearchString as _mergeSearchString } from \"./utils\";\n",
+      "start": 1685413275097,
+      "end": 1685413275097
+    },
+    {
+      "name": "solid",
+      "result": "export * from \"./components\";\nexport * from \"./integration\";\nexport * from \"./lifecycle\";\nexport { useRouteData, useHref, useIsRouting, useLocation, useMatch, useNavigate, useParams, useResolvedPath, useSearchParams, useBeforeLeave } from \"./routing\";\nexport { mergeSearchString as _mergeSearchString } from \"./utils\";",
+      "start": 1685413275097,
+      "end": 1685413275100,
+      "order": "pre"
+    },
+    {
+      "name": "vite:import-analysis",
+      "result": "export * from \"/node_modules/@solidjs/router/dist/components.jsx?v=fac3bc7e\";\nexport * from \"/node_modules/@solidjs/router/dist/integration.js?v=fac3bc7e\";\nexport * from \"/node_modules/@solidjs/router/dist/lifecycle.js?v=fac3bc7e\";\nexport { useRouteData, useHref, useIsRouting, useLocation, useMatch, useNavigate, useParams, useResolvedPath, useSearchParams, useBeforeLeave } from \"/node_modules/@solidjs/router/dist/routing.js?v=fac3bc7e\";\nexport { mergeSearchString as _mergeSearchString } from \"/node_modules/@solidjs/router/dist/utils.js?v=fac3bc7e\";",
+      "start": 1685413275100,
+      "end": 1685413275101,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "resolvedId": "/home/ebrahim/Desktop/coding_school_list/web_app/node_modules/solid-start/error-boundary/index.tsx?v=fac3bc7e",
+  "transforms": [
+    {
+      "name": "__load__",
+      "result": "import { ErrorBoundary } from \"./ErrorBoundary\";\nexport { ErrorMessage } from \"./ErrorBoundary\";\nexport { ErrorBoundary };\nexport default ErrorBoundary;\n",
+      "start": 1685413275198,
+      "end": 1685413275198
+    },
+    {
+      "name": "solid",
+      "result": "import { ErrorBoundary } from \"./ErrorBoundary\";\nexport { ErrorMessage } from \"./ErrorBoundary\";\nexport { ErrorBoundary };\nexport default ErrorBoundary;",
+      "start": 1685413275198,
+      "end": 1685413275200,
+      "order": "pre"
+    },
+    {
+      "name": "vite:import-analysis",
+      "result": "import { ErrorBoundary } from \"/node_modules/solid-start/error-boundary/ErrorBoundary.tsx?v=fac3bc7e\";\nexport { ErrorMessage } from \"/node_modules/solid-start/error-boundary/ErrorBoundary.tsx?v=fac3bc7e\";\nexport { ErrorBoundary };\nexport default ErrorBoundary;",
+      "start": 1685413275200,
+      "end": 1685413275201,
+      "order": "normal"
+    }
+  ]
+}
