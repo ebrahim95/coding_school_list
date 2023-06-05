@@ -1,7 +1,7 @@
 import { A } from "solid-start";
 import { createSignal, onMount, For, Show } from 'solid-js';
 import { coding_school } from '../services/utils'
-// import { getSchools } from '../services/service'
+import { getSchools } from '../services/service'
 import {
   flexRender,
   getCoreRowModel,
@@ -23,231 +23,21 @@ import {
 
 
 
-const defaultData: coding_school[] = [
-  {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none coco",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  }, {
-    name: 'joe',
-    url: 'google..com',
-    courses_offered: "none",
-    location: "may"
-  },
-]
 
 
 //TODO: need to disable sorting for some columns
 const defaultColumns: ColumnDef<coding_school>[] = [
+
   {
     accessorKey: 'name',
-    cell: info => info.getValue<string>(),
+    accessorFn: (row) => <div><span>{row.name}</span><a class="link" href={row.url}> Link[]</a></div>,
     header: () => 'Name',
-  },
-  {
-    accessorKey: 'url',
-    header: () => 'Url',
+    cell: info => info.getValue()
   },
   {
     accessorKey: 'courses_offered',
     header: () => 'Courses Offered',
-    cell: info => info.getValue<string>().split(" ").map(word => <span class="badge mx-1">{word}</span>),
+    cell: info => info.getValue<string>().split(",").map(word => <span class="badge mx-1">{word}</span>),
   },
   {
     accessorKey: 'location',
@@ -257,28 +47,26 @@ const defaultColumns: ColumnDef<coding_school>[] = [
 
 export default function Home() {
 
-  const [data, setData] = createSignal([] as coding_school[])
   const [sorting, setSorting] = createSignal<SortingState>([])
   const [columnFilters, setColumnFilters] = createSignal<ColumnFiltersState>([])
   const [globalFilter, setGlobalFilter] = createSignal<any>("")
-  // const [data, setData] = createSignal([] as coding_school[])
+  const [data, setData] = createSignal([] as coding_school[])
 
-  // onMount(async () => {
-  //   const raw_data = await getSchools();
-  //   const filter_array = raw_data.map(({ name, url, courses_offered, location }) => {
-  //     return ({
-  //       name,
-  //       url,
-  //       courses_offered,
-  //       location,
-  //     })
-  //   })
-  //   setData(filter_array)
-  //   console.log(filter_array)
-  //
-  // })
+  onMount(async () => {
+    const raw_data = await getSchools();
+    const filter_array = raw_data.map(({ name, url, courses_offered, location }) => {
+      return ({
+        name,
+        url,
+        courses_offered,
+        location,
+      })
+    })
+    setData(filter_array)
+    console.log(filter_array)
 
-  setData(defaultData)
+  })
+
 
 
   const fuzzyFilter = (row: any, columnId: any, value: any, addMeta: any) => {
@@ -342,9 +130,6 @@ export default function Home() {
         Coding Schools In Your City
       </h1>
       <div class="form-control">
-        <label class="label">
-          Press <span class="kbd ml-1 mr-auto">Enter</span>
-        </label>
         <label class="input-group">
           <span>Search</span>
           <input
@@ -353,6 +138,10 @@ export default function Home() {
             class="input input-bordered"
           />
         </label>
+        <label class="label">
+          Press <span class="kbd ml-1 mr-auto">Enter</span>
+        </label>
+
       </div>
       <table>
         <thead>
@@ -430,29 +219,29 @@ export default function Home() {
           {table.getPageCount()}
         </strong>
       </span>
-      <form class="flex flex-col justify-center gap-3">
-        <h2> Fill up form below to add your school </h2>
-        <label class="input-group input-group-vertical ">
-          <span>name</span>
-          <input type="text" placeholder="My Coding School" class="input input-bordered" />
-        </label>
-        <label class="input-group input-group-vertical">
-          <span>url</span>
-          <input type="text" placeholder="https://www.google.com" class="input input-bordered" />
-        </label>
-        <label class="input-group input-group-vertical">
-          <span>courses offered</span>
-          <input type="text" placeholder="Java, Python, JavaScript" class="input input-bordered" />
-        </label>
-        <label class="input-group input-group-vertical">
-          <span>location</span>
-          <input type="text" placeholder="Austin, TX" class="input input-bordered" />
-        </label>
-
-        <button class="btn">
-          Submit
-        </button>
-      </form>
+      {/* <form class="flex flex-col justify-center gap-3"> */}
+      {/*   <h2> Fill up form below to add your school </h2> */}
+      {/*   <label class="input-group input-group-vertical "> */}
+      {/*     <span>name</span> */}
+      {/*     <input type="text" placeholder="My Coding School" class="input input-bordered" /> */}
+      {/*   </label> */}
+      {/*   <label class="input-group input-group-vertical"> */}
+      {/*     <span>url</span> */}
+      {/*     <input type="text" placeholder="https://www.google.com" class="input input-bordered" /> */}
+      {/*   </label> */}
+      {/*   <label class="input-group input-group-vertical"> */}
+      {/*     <span>courses offered</span> */}
+      {/*     <input type="text" placeholder="Java, Python, JavaScript" class="input input-bordered" /> */}
+      {/*   </label> */}
+      {/*   <label class="input-group input-group-vertical"> */}
+      {/*     <span>location</span> */}
+      {/*     <input type="text" placeholder="Austin, TX" class="input input-bordered" /> */}
+      {/*   </label> */}
+      {/**/}
+      {/*   <button class="btn"> */}
+      {/*     Submit */}
+      {/*   </button> */}
+      {/* </form> */}
       {/* <p class="my-4"> */}
       {/*   <span>Home</span> */}
       {/*   {" - "} */}
