@@ -30,14 +30,19 @@ const defaultColumns: ColumnDef<coding_school>[] = [
 
   {
     accessorKey: 'name',
-    accessorFn: (row) => <div><span>{row.name}</span><a class="link" href={row.url}> Link[]</a></div>,
     header: () => 'Name',
     cell: info => info.getValue()
   },
   {
-    accessorKey: 'courses_offered',
-    header: () => 'Courses Offered',
-    cell: info => info.getValue<string>().split(",").map(word => <span class="badge mx-1">{word}</span>),
+    accessorKey: 'Url',
+    accessorFn: (row) => <a class="link" href={row.url}>Link</a>,
+    cell: info => info.getValue()
+  },
+  {
+    accessorKey: 'rating',
+    accessorFn: (row) => <span class="badge mx-1">{row.rating}</span>,
+    header: () => 'Rating',
+    cell: info => info.getValue()
   },
   {
     accessorKey: 'location',
@@ -54,16 +59,15 @@ export default function Home() {
 
   onMount(async () => {
     const raw_data = await getSchools();
-    const filter_array = raw_data.map(({ name, url, courses_offered, location }) => {
+    const filter_array = raw_data.map(({ name, url, rating, location }) => {
       return ({
         name,
         url,
-        courses_offered,
+        rating,
         location,
       })
     })
     setData(filter_array)
-    console.log(filter_array)
 
   })
 
