@@ -19,7 +19,7 @@ export async function saveSchool(
   name: string,
   location: string,
   url: string,
-  courses_offered: string
+  rating: string
 ): Promise<coding_school> {
   return await pb
     .collection("coding_schools")
@@ -27,7 +27,7 @@ export async function saveSchool(
       name,
       location,
       url,
-      courses_offered
+      rating
     })
 }
 
