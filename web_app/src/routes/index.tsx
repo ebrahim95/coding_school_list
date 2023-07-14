@@ -216,13 +216,13 @@ export default function Home() {
           {'>'}
         </button>
       </div>
-      <span>
-        <div>Page</div>
+      <div>
+        <span>Page</span><br />
         <strong>
           {table.getState().pagination.pageIndex + 1} of{' '}
           {table.getPageCount()}
         </strong>
-      </span>
+      </div>
       {/* <form class="flex flex-col justify-center gap-3"> */}
       {/*   <h2> Fill up form below to add your school </h2> */}
       {/*   <label class="input-group input-group-vertical "> */}
